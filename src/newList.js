@@ -15,8 +15,16 @@ class List extends Component {
           {this.props.inventory.map((item, index) => {
             return (
               <li key={index}>
-                <span>{item.price}</span>
+                <p className='name'>{item.name}</p>
+                <span>Price in USD: {item.price}</span>
+                <br />
+                <span>Description: {item.description}</span>
+                <br />
+                <img role="presentation" src={item.image} />
+                <br />
+                <i className="icon ion-trash-a" onClick={this.props.onDeleteClick.bind(this, item.id)} key={item.id}></i>
               </li>
+
             )
           })}
         </ul>
